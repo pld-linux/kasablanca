@@ -1,5 +1,5 @@
-Summary:	A graphical ftp client for KDE
-Summary(pl):	Graficzny klient ftp dla KDE
+Summary:	A graphical FTP client for KDE
+Summary(pl):	Graficzny klient FTP dla KDE
 Name:		kasablanca
 Version:	0.4.0.1
 Release:	1
@@ -18,15 +18,15 @@ BuildRequires:	unsermake >= 040511
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Kasablanca is a graphical ftp client for KDE. Among its features are
+Kasablanca is a graphical FTP client for KDE. Among its features are
 support for SSL/TLS encryption (both commands and data using auth TLS,
-not sftp), fxp (direct ftp to ftp transfer), bookmarks, and queues.
+not sftp), fxp (direct FTP to FTP transfer), bookmarks, and queues.
 
 %description -l pl
-Kasablanca to graficzny klient ftp dla KDE. Obs³uguje miêdzy innymi
+Kasablanca to graficzny klient FTP dla KDE. Obs³uguje miêdzy innymi
 szyfrowanie SSL/TLS (zarówno polecenia, jak i dane przy u¿yciu
 uwierzytelnionego TLS, nie sftp), fxp (bezpo¶rednie przesy³anie danych
-z ftp do ftp), zak³adki i zapytania.
+z FTP do FTP), zak³adki i zapytania.
 
 %prep
 %setup -q
