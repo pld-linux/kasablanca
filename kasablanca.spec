@@ -9,14 +9,13 @@ Source0:	http://download.berlios.de/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	507e7345e3efaf1647fc164c45d3127e
 Patch0:		%{name}-desktop.patch
 URL:		http://kasablanca.berlios.de/
-BuildRequires:	fam-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	unsermake >= 040511
+BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel >= 3.0
+BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:	unsermake >= 040511
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_htmldir	/usr/share/doc/kde/HTML
 
 %description
 Kasablanca is a graphical ftp client for KDE. Among its features are
