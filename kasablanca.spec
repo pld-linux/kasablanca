@@ -1,12 +1,12 @@
 Summary:	A graphical FTP client for KDE
 Summary(pl):	Graficzny klient FTP dla KDE
 Name:		kasablanca
-Version:	0.4.0.1
+Version:	0.4.0.2
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.berlios.de/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	507e7345e3efaf1647fc164c45d3127e
+# Source0-md5:	033bec75f0dac75c1dd892392a4a01ae
 Patch0:		%{name}-desktop.patch
 URL:		http://kasablanca.berlios.de/
 BuildRequires:	autoconf
