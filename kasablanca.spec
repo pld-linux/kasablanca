@@ -34,8 +34,8 @@ z FTP do FTP), zak³adki i zapytania.
 %patch0 -p1
 
 %build
-cp %{_datadir}/automake/config.sub admin
-export UNSERMAKE=%{_datadir}/unsermake/unsermake
+cp /usr/share/automake/config.sub admin
+export UNSERMAKE=/usr/share/unsermake/unsermake
 
 %{__sed} -i -e 's,\$(TOPSUBDIRS),doc po src,'  Makefile.am
 
