@@ -9,9 +9,9 @@ Source0:	http://download.berlios.de/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	491555d8ddeb9a6627bd73b2477dbf26
 URL:		http://kasablanca.berlios.de/
 BuildRequires:	fam-devel
-BuildRequires:  autoconf
+BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:  unsermake >= 040511
+BuildRequires:	unsermake >= 040511
 BuildRequires:	kdelibs-devel >= 3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -32,14 +32,14 @@ z ftp do ftp), zak³adki i zapytania.
 %setup -q
 
 %build
-cp /usr/share/automake/config.sub admin
-export UNSERMAKE=/usr/share/unsermake/unsermake
+cp %{_datadir}/automake/config.sub admin
+export UNSERMAKE=%{_datadir}/unsermake/unsermake
 
 %{__sed} -i -e 's,\$(TOPSUBDIRS),doc po src,'  Makefile.am
 
 %{__make} cvs -f admin/Makefile.common
 
-%configure \ 
+%configure \
 	--with-qt-libraries=%{_libdir}
 
 %{__make}
