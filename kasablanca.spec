@@ -1,12 +1,13 @@
 Summary:	A graphical ftp client for KDE
 Summary(pl):	Graficzny klient ftp dla KDE
 Name:		kasablanca
-Version:	0.3.1
-Release:	2
+Version:	0.4
+%define		_pre	pre2
+Release:	0.%{_pre}.1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://download.berlios.de/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	491555d8ddeb9a6627bd73b2477dbf26
+Source0:	http://download.berlios.de/%{name}/%{name}-%{version}-%{_pre}.tar.gz
+# Source0-md5:	b7a423e34943a5c665cab6902669b26d
 URL:		http://kasablanca.berlios.de/
 BuildRequires:	fam-devel
 BuildRequires:	autoconf
@@ -29,7 +30,7 @@ uwierzytelnionego TLS, nie sftp), fxp (bezpo¶rednie przesy³anie danych
 z ftp do ftp), zak³adki i zapytania.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-%{_pre}
 
 %build
 cp %{_datadir}/automake/config.sub admin
