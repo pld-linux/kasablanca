@@ -16,11 +16,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Kasablanca is a graphical ftp client for KDE. Among its features are
-support for ssl/tls encryption (both commands and data using auth tls,
-not sftp), fxp (direct ftp to ftp transfer) bookmarks, and queues.
+support for SSL/TLS encryption (both commands and data using auth TLS,
+not sftp), fxp (direct ftp to ftp transfer), bookmarks, and queues.
 
 %description -l pl
-Kasablanca to graficzny klient ftp dla KDE.
+Kasablanca to graficzny klient ftp dla KDE. Obs³uguje miêdzy innymi
+szyfrowanie SSL/TLS (zarówno polecenia, jak i dane przy u¿yciu
+uwierzytelnionego TLS, nie sftp), fxp (bezpo¶rednie przesy³anie danych
+z ftp do ftp), zak³adki i zapytania.
 
 %prep
 %setup -q
@@ -28,7 +31,6 @@ Kasablanca to graficzny klient ftp dla KDE.
 %build
 kde_appsdir="%{_desktopdir}"; export kde_appsdir
 kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
 %configure
 
 %{__make}
@@ -44,10 +46,10 @@ install -d $RPM_BUILD_ROOT%{_desktopdir}/kde
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv $RPM_BUILD_ROOT%{_desktopdir}/Utilities/* $RPM_BUILD_ROOT%{_desktopdir}/kde/
+mv $RPM_BUILD_ROOT%{_desktopdir}/Utilities/* $RPM_BUILD_ROOT%{_desktopdir}/kde
 echo "Categories=ConsoleOnly;Network;FileTransfer;" >> $RPM_BUILD_ROOT%{_desktopdir}/kde/kasablanca.desktop
 
-%find_lang %{name}                  --with-kde
+%find_lang %{name} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -57,4 +59,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_desktopdir}/kde/*
 %{_datadir}/apps/*
-%{_pixmapsdir}/*/*/*/*
+%{_iconsdir}/*/*/*/*
