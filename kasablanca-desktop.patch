@@ -1,0 +1,31 @@
+diff -urN kasablanca-0.4-pre2.orig/src/kasablanca.desktop kasablanca-0.4-pre2/src/kasablanca.desktop
+--- kasablanca-0.4-pre2.orig/src/kasablanca.desktop	2004-03-22 19:58:39.000000000 +0100
++++ kasablanca-0.4-pre2/src/kasablanca.desktop	2004-07-05 18:50:07.000000000 +0200
+@@ -1,11 +1,10 @@
+ [Desktop Entry]
+ Encoding=UTF-8
+-Name=kasablanca
+-Name[xx]=xxkasablancaxx
++Name=Kasablanca
+ Exec=kasablanca
+ Icon=kasablanca
+ Type=Application
+-Comment=A simple KDE Application
++Comment=A simple KDE FTP client with TLS support
+ Comment[ca]=Una simple aplicació KDE
+ Comment[da]=Et simpelt KDE program
+ Comment[de]=Eine einfache KDE-Anwendung
+@@ -16,6 +15,7 @@
+ Comment[hu]=Egyszerű KDE-alkalmazás
+ Comment[it]=Una semplice applicazione KDE
+ Comment[nl]=Een eenvoudige KDE-toepassing
++Comment[pl]=Prosty klient FTP pod KDE z obsługą TLS
+ Comment[pt]=Uma aplicação KDE simples
+ Comment[pt_BR]=Um simples Aplicativo do KDE
+ Comment[ru]=Простое приложение KDE
+@@ -24,3 +24,5 @@
+ Comment[sv]=Ett enkelt KDE-program
+ Comment[xx]=xxA simple KDE Applicationxx
+ Comment[zh_CN]=一个简单的KDE应用程序
++Categories=Qt;KDE;Network;FileTransfer;
++# vi: encoding=utf-8
