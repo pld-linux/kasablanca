@@ -3,11 +3,12 @@ Summary(pl):	Graficzny klient ftp dla KDE
 Name:		kasablanca
 Version:	0.4
 %define		_pre	pre2
-Release:	0.%{_pre}.1
+Release:	0.%{_pre}.2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.berlios.de/%{name}/%{name}-%{version}-%{_pre}.tar.gz
 # Source0-md5:	b7a423e34943a5c665cab6902669b26d
+Patch0:		%{name}-desktop.patch
 URL:		http://kasablanca.berlios.de/
 BuildRequires:	fam-devel
 BuildRequires:	autoconf
@@ -31,6 +32,7 @@ z ftp do ftp), zak³adki i zapytania.
 
 %prep
 %setup -q -n %{name}-%{version}-%{_pre}
+%patch0 -p1
 
 %build
 cp %{_datadir}/automake/config.sub admin
@@ -54,7 +56,7 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_desktopdir}/kde
 mv $RPM_BUILD_ROOT%{_datadir}/applnk/Utilities/kasablanca.desktop $RPM_BUILD_ROOT%{_desktopdir}/kde
-echo "Categories=Qt;KDE;Network;FileTransfer;" >> $RPM_BUILD_ROOT%{_desktopdir}/kde/kasablanca.desktop
+mv $RPM_BUILD_ROOT%{_iconsdir}/hicolor $RPM_BUILD_ROOT%{_iconsdir}/crystalsvg
 
 %find_lang %{name} --with-kde
 
