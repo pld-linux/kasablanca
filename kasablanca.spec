@@ -2,13 +2,16 @@ Summary:	A graphical ftp client for KDE
 Summary(pl):	Graficzny klient ftp dla KDE
 Name:		kasablanca
 Version:	0.3.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://download.berlios.de/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	491555d8ddeb9a6627bd73b2477dbf26
 URL:		http://kasablanca.berlios.de/
 BuildRequires:	fam-devel
+BuildRequires:  autoconf
+BuildRequires:	automake
+BuildRequires:  unsermake >= 040511
 BuildRequires:	kdelibs-devel >= 3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -29,9 +32,15 @@ z ftp do ftp), zak³adki i zapytania.
 %setup -q
 
 %build
-kde_appsdir="%{_desktopdir}"; export kde_appsdir
-kde_htmldir="%{_htmldir}"; export kde_htmldir
-%configure
+cp /usr/share/automake/config.sub admin
+export UNSERMAKE=/usr/share/unsermake/unsermake
+
+%{__sed} -i -e 's,\$(TOPSUBDIRS),doc po src,'  Makefile.am
+
+%{__make} cvs -f admin/Makefile.common
+
+%configure \ 
+	--with-qt-libraries=%{_libdir}
 
 %{__make}
 
@@ -39,15 +48,12 @@ kde_htmldir="%{_htmldir}"; export kde_htmldir
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-        DESTDIR=$RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_desktopdir}
+        DESTDIR=$RPM_BUILD_ROOT \
+	kde_htmldir=%{_kdedocdir}
+
 install -d $RPM_BUILD_ROOT%{_desktopdir}/kde
-
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
-
-mv $RPM_BUILD_ROOT%{_desktopdir}/Utilities/* $RPM_BUILD_ROOT%{_desktopdir}/kde
-echo "Categories=ConsoleOnly;Network;FileTransfer;" >> $RPM_BUILD_ROOT%{_desktopdir}/kde/kasablanca.desktop
+mv $RPM_BUILD_ROOT%{_datadir}/applnk/Utilities/kasablanca.desktop $RPM_BUILD_ROOT%{_desktopdir}/kde
+echo "Categories=Qt;KDE;Network;FileTransfer;" >> $RPM_BUILD_ROOT%{_desktopdir}/kde/kasablanca.desktop
 
 %find_lang %{name} --with-kde
 
