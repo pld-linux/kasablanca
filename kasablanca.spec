@@ -5,7 +5,7 @@ Version:	0.4.0.2
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://download.berlios.de/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://download.berlios.de/kasablanca/%{name}-%{version}.tar.gz
 # Source0-md5:	033bec75f0dac75c1dd892392a4a01ae
 Patch0:		%{name}-desktop.patch
 URL:		http://kasablanca.berlios.de/
