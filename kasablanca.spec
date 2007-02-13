@@ -1,5 +1,5 @@
 Summary:	A graphical FTP client for KDE
-Summary(pl.UTF-8):   Graficzny klient FTP dla KDE
+Summary(pl.UTF-8):	Graficzny klient FTP dla KDE
 Name:		kasablanca
 Version:	0.4.0.2
 Release:	1
